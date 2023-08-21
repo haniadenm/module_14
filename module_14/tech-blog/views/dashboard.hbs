@@ -1,0 +1,44 @@
+<!-- New Blog Container -->
+<div class="card-body">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-center">New Blog</h3>
+            <form class="new-blog-form d-flex flex-column m-2" id="new-blog-form">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="blog-title" placeholder="Title" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" id="blog-text" rows="3" placeholder="text" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Your Blog Container -->
+
+<div class="container">
+    <div class="card-title my-2">
+        <h4 class="text-center">Your Blogs</h4>
+    </div>
+    <div class="row blog-list">
+        {{#each user.blogs}}
+        <div class="col-lg-4 col-md-6">
+            <div class="card mb-4">
+                <div class="row">
+                    <h2>
+                        <a href="/blog/{{id}}" class="card-title m-1 text-decoration-none text-primary">{{title}}</a>
+                    </h2>
+                </div>
+                <p class="card-text m-1"><strong>{{text}}</strong></p>
+                <div class="card-footer">
+                    <button class="delete-event-btn btn btn-danger" data-id="{{id}}">Delete Blog</button>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="./js/dashboard.js"></script>
